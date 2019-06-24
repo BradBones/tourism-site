@@ -29,11 +29,18 @@
 
     // flex- grow, shrink, basis
     flex: 0 0 18%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .hotel-view {
     background-color: #fff;
+
+    //TESTING
     background-color: orange;
+    height: 80rem;
 
     // tells the element to occupy as much space as it can within the container
     flex: 1;
