@@ -291,8 +291,18 @@
     cursor: pointer;
     transition: all .2s;
 
+    // add a margin in both states to have the earrow move away from the text on hover
+    & span {
+        margin-left: 3px;
+        transition: margin-left 0.2s;
+    }
+
     &:hover {
         color: var(--color-grey-dark-1);
+        
+        span {
+            margin-left: 8px;
+        }
     }
 
     &:focus {
@@ -388,5 +398,68 @@
         &:not(:last-child) {
             margin-right: -1.5rem;
         }
+    }
+}
+
+///////////////////////////////////
+// REVIEWS
+.review {
+    background-color: #fff;
+    box-shadow: var(--shadow-light);
+    padding: 3rem;
+    margin-bottom: 3.5rem;
+    position: relative;
+
+    &__text {
+        margin-bottom: 2rem;
+        z-index: 100;
+        position: relative; // Has to be set for z-index to work
+    }
+
+    &__user {
+        display: flex;
+        align-items: center;
+    }
+
+    &__photo {
+        height: 4.5rem;
+        width: 4.5rem;
+        border-radius: 50%;
+    }
+
+    &__user-box {
+        margin-left: 1.5rem;
+    }
+
+    &__user-name {
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0;
+        margin-bottom: 0.4rem;
+    }
+
+    &__user-date {
+        font-size: 1rem;
+        color: var(--color-grey-dark-3);
+    }
+
+    &__rating {
+        margin-left: auto;
+        color: var(--color-primary);
+        font-size: 2.2rem;
+        font-weight: 300;
+    }
+
+    &::before {
+        content: "\201C";
+        position: absolute;
+        top: -1.4rem;
+        left: 0.5rem;
+        line-height: 1;
+        font-size: 20rem;
+        color: var(--color-grey-light-2);
+        font-family: sans-serif;
+        z-index: 1;
     }
 }
