@@ -16,7 +16,7 @@ Grey dark 3: #999
 
 */
 
-// root psudoclass has the highest level, so global variables (custom properties) go in here and can be inherited by all children
+// root psudoclass has the highest level, so global "custom properties" go in here and can be inherited by all children
 :root {
     --color-primary: #eb2f64;
     --color-primary-light: #FF3366;
@@ -37,6 +37,13 @@ Grey dark 3: #999
     --line: 1px solid var(--color-grey-light-2);
 }
 
+// CSS variables
+// (custom properties cannot be used in media queries - so we use variables instead for the break points)
+$bp-largest: 75em; //1200px
+$bp-large: 68.57em; //1100px (1100 / 16 = 68.75)
+$bp-medium: 56.25em; //900px
+$bp-small: 37.5em; //600px
+
 
 * {
     margin: 0;
@@ -52,6 +59,10 @@ Grey dark 3: #999
 html {
     box-sizing: border-box;
     font-size: 62.5%; // 1rem = 10px, 10/16 = 62.5%
+
+    @media only screen and (max-width: $bp-large) {
+        font-size: 50%; // 8 / 16 = 0.5 or 50%
+    }
 }
 
 body {
